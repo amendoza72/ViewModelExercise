@@ -4,7 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MarcadorViewModel: ViewModel() {
-
+    var nombreA = "Equipo A"
+    var nombreB = "Equipo B"
     var tanteoEquipoA = MutableLiveData<Int>()
     var tanteoEquipoB = MutableLiveData<Int>()
 
@@ -24,6 +25,12 @@ class MarcadorViewModel: ViewModel() {
     }
 
     fun dameResultado(): String {
-        return tanteoEquipoA.value.toString() + " - " + tanteoEquipoB.value.toString()
+        if (tanteoEquipoA.value!! > tanteoEquipoB.value!!){
+            return nombreA
+        }
+        else{
+            return nombreB
+        }
+        //return tanteoEquipoA.value.toString() + " - " + tanteoEquipoB.value.toString()
     }
 }
